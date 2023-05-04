@@ -1,6 +1,6 @@
 # desafios!
 
-## este repo contendra desafios de HTML, CSS, javaScripst y Git
+## este repo contendra desafios de HTML, CSS, javaScript y Git
 
 El primer commit de este repo es un README.md, que sera modificado
 como primer tarea, para describir lo que iremos haciendo
