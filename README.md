@@ -2,7 +2,7 @@
 
 ## Workflow
 
-En este repositorio voy a estar haciendo diferentes desafios en Main y si se desea agregar un feature a Main se debera crear un branch como ejemplo "Challenge", y para agregar al branch challenge un feature se debera crear un branch x en la que se hara un pull request a Challenge para poder mergearlo y luego se hara un code review para revisar si el code esta bien o si se debera cambiar y lo mismo para Challenge a main. 
+In this repository I will be creating different and adding them to Main and if I wish to add a challenge to main I must create a branch with the name that best represents that challenge and continue on that branch, if I also choose to add to that branch I must create a "Feature" branch in which i will add the changes I want annd then make a PR to do a code-review and if everything is clear then the two will merge and same for the branches of the challenges to Main.
 
 
 Main o-------o-----------\----------------------o
@@ -12,4 +12,4 @@ Main o-------o-----------\----------------------o
 
 ## Contents of branches:
 
-Los branches de main contendran diferentes desafios en la cual se van a mergear en main.
+The branches of Main will contain different challenges in which each one will merge with main once completed. Feature branches will contain changes made to challenge branches.
