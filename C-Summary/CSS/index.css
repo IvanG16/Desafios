@@ -1,0 +1,63 @@
+    @import url('https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600&display=swap');
+    *{
+      font-family: 'Hanken Grotesk', sans-serif;
+    }
+    p{
+      font-size: 1em;
+    }
+    main{
+      height: 400px;
+      width: 600px;
+      position: absolute;
+      margin: 0;
+      top: 50%;
+      left: 50%;
+      -ms-transform: translate(-50%, -50%);
+      transform: translate(-50%, -50%);
+      box-shadow: 15px 15px 35px rgba(0, 0, 0, 0.1);
+      border-radius: 25px;
+    }
+    .left-section{
+      background: linear-gradient(hsl(254, 92%, 62%), hsl(241, 81%, 54%));
+      position: absolute;
+      padding: 5%;
+      right: 50%;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      border-radius: 25px;
+      color: white;
+      text-align: center;
+    }
+    .left-section h3{
+      margin-top: 0;
+    }
+    .result{
+      background: linear-gradient(hsla(256, 72%, 46%, 1), hsla(241, 72%, 46%, 0.05));
+      margin: auto;
+      width: 125px;
+      height: 125px;
+      border-radius: 100px;
+      padding: 15px ;
+
+    }
+    .result span{
+      font-size: 3.5rem;
+      font-weight: 500;
+      margin-top: 16px;
+      display: flex;
+      flex-direction: column;
+    }
+    .result p{
+      margin-top: 0px;
+    }
+    .transparent{
+      opacity: 0.5;
+    }
+    .description h2{
+      font-weight: 500;
+      margin-bottom: 0;
+    }
+    .description p{
+      margin-top: 10px;
+    }
