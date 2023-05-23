@@ -76,7 +76,8 @@ main{
   padding: 10px;
   display: flex;
   align-items: center;
-  margin: 5px;
+  margin-top: 5px;
+  margin-bottom: 5px;
   border-radius: 12px;
   width: 220px;
   height: 42px;
@@ -168,4 +169,46 @@ main{
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: destination-out;
+          mask-composite: exclude;
+}
+@media only screen and (max-width: 375px){
+  .attribution{
+    display: none;
+  }
+  main{
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+  }
+  .left-section{
+    position: static;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0px 0px 25px 25px;
+  }
+  .right-section{
+    position: static;
+    bottom: 0;  
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    border-radius: 0;
+  }
+  .summary-overall p{
+    box-sizing: border-box;
+    width: 100%;
+  }
+  .button{
+    position: static;
+  }
 }
