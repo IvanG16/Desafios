@@ -2,6 +2,9 @@
 *{
   font-family: 'Hanken Grotesk', sans-serif;
 }
+body{
+  margin: 0;
+}
 p, button{
   font-size: 1em;
 }
@@ -169,8 +172,8 @@ main{
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: destination-out;
-          mask-composite: exclude;
 }
+
 @media only screen and (max-width: 375px){
   .attribution{
     display: none;
