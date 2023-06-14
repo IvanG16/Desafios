@@ -2,6 +2,9 @@
 *{
   font-family: 'Hanken Grotesk', sans-serif;
 }
+body{
+  margin: 0;
+}
 p, button{
   font-size: 1em;
 }
@@ -76,7 +79,7 @@ main{
   padding: 10px;
   display: flex;
   align-items: center;
-  margin: 5px;
+  margin: 5px 0;
   border-radius: 12px;
   width: 220px;
   height: 42px;
@@ -110,7 +113,6 @@ main{
   height: 20px;
   opacity: 0.6;
  }
- 
  .block span:nth-of-type(1){
   color: hsla(0, 0%, 0%, 0.7);
   margin-left: auto;
@@ -168,4 +170,36 @@ main{
     linear-gradient(#000 0 0) content-box,
     linear-gradient(#000 0 0);
   -webkit-mask-composite: destination-out;
+}
+
+@media only screen and (max-width: 375px){
+  .attribution{
+    display: none;
+  }
+  main{
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    border-radius: 0;
+    box-shadow: none;
+    transform: translate(0%, 0%);
+    -ms-transform: translate(0%, 0%);
+  }
+  .left-section{
+    position: static;
+    border-radius: 0px 0px 25px 25px;
+  }
+  .right-section{
+    position: static;
+    border-radius: 0;
+  }
+  .block {
+    box-sizing: border-box;
+    width: 100%;
+  }
+  button{
+    position: static;
+  }
 }
