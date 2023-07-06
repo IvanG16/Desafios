@@ -51,3 +51,25 @@ img{
     height: 50px;
     width: 50px;
 }
+.screen{
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 70%);
+    padding: 0 20px 10px;
+    border-bottom: 5px;
+    border-color: var(--grey);
+    justify-content: flex-end;
+
+}
+.screen div{
+    display: flex;
+    justify-content: flex-end;
+    padding: 10px;
+}
+.border{
+    width: 80%;
+    height: 20px;
+    border-radius: 10px;
+    background-color: var(--grey);
+    margin: 0 10%;
+}
