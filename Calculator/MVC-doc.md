@@ -1,20 +1,19 @@
 # Identifying parts:
 
-**-view** = la calculadora, 
-**-model** = los array y otras variables que guarden datos, 
-**-controller** = funciones.
+**-view** = The calculator, 
+**-model** = Arrays and other variables that save data, 
+**-controller** = Functions.
 
 
 
 
-View = Realizar el UI en la cual el usuario podrá interactuar con los datos mostrados. Se deberá mantener el aspecto de una calculadora y tendrá que ser sencillo para entender.
+View = Make the UI in which the user will be able to interact with the data presented. It should maintain the aspect of a calculator and should be easy to understand.
 
 
-Model : Crear distintos variables que ayudaran a guardar los inputs ingresados por el usuario y para guardar la cuenta que ingresa el usuario.
+Model : Create different variables that will help save the inputs made by the user and to save the different operations the user makes.
 
 
-Controller : Crear diferentes funciones para poder manejar los datos que ingresa el usuario(función de suma, resta , multiplicación, etc).
-
+Controller : Create different functions that will manipulate the data the user inputs(Function for addition, subtraction, multiplication, division, etc).
 
 
 The task can be divided into smaller tasks to do with view, model or controller.
