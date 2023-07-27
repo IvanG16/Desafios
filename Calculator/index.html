@@ -6,16 +6,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Calculator</title>
   <link rel="stylesheet" href="index.css">
+  <script src="index.js" defer></script>
 </head> 
 
 <body>
     <main>
         <div class="screen">
-            <div class="old-input">
-                old input
+            <div class="old-input" id="old-inputs">
             </div>
-            <div class="input">
-                input   
+            <div class="input" id="inputs">
             </div>
         </div>
         <div class="border"></div>
@@ -77,12 +76,11 @@
             <div data-button-type="number" data-button-value="." class="calc-button">
                 .
             </div>
-            <div data-button-type="operator" data-button-value="=" class="calc-button">
+            <div data-button-type="equal" data-button-value="=" class="calc-button">
                 =  
             </div>
         </div>
     </main>
-  <script src="index.js" defer></script>
 </body>
 
 </html>
