@@ -5,20 +5,15 @@ function addEventListenerToButton(element){
 
         switch(type){
             case "clear": 
-
                 clear();
-                document.getElementById("old-inputs").innerHTML = '';
-                document.getElementById("inputs").innerHTML = '';
             break;
 
             case "delete":
                 del();
             break;
-            
 
             case "operator":
-
-                numbers[1]=value;
+                numbers[OPERATOR]=value;
                 if(numbers.length > 3){
                     operation(numbers);
                 }
@@ -27,27 +22,25 @@ function addEventListenerToButton(element){
             break;
 
             case "number":
-
-                numbers[1] ? numbers[2]+=value : numbers[0]+=value;
+                numbers[OPERATOR] ? numbers[SECOND_NUMBER]+=value : numbers[FIRST_NUMBER]+=value;
                 parenthesis(numbers);
             break;
             
             case "equal":
-
                 parenthesis(numbers);
                 operation(numbers);
-                document.getElementById("inputs").innerHTML = numbers[0];
-                numbers[2]='';
+                document.getElementById("inputs").innerHTML = numbers[FIRST_NUMBER];
+                numbers[SECOND_NUMBER]='';
                 
             break;
 
             case "number-sign":
-                if(numbers[1]){
-                    numbers[2]= numbers[2]* -1;
-                    document.getElementById("inputs").innerHTML = '('+numbers[2]+')';
+                if(numbers[OPERATOR]){
+                    numbers[SECOND_NUMBER]= numbers[SECOND_NUMBER]* -1;
+                    document.getElementById("inputs").innerHTML = '('+numbers[SECOND_NUMBER]+')';
                 }else{
-                    numbers[0]= numbers[0]* -1;
-                    document.getElementById("inputs").innerHTML = numbers[0];
+                    numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER]* -1;
+                    document.getElementById("inputs").innerHTML = numbers[FIRST_NUMBER];
                 }
             break;
         }
@@ -56,22 +49,22 @@ function addEventListenerToButton(element){
 
 function operation(numbers){
 
-    switch(numbers[1]){
+    switch(numbers[OPERATOR]){
 
         case "+":
-            numbers[0]= Number(numbers[0]) + Number(numbers[2]);
+            numbers[FIRST_NUMBER]= Number(numbers[FIRST_NUMBER]) + Number(numbers[SECOND_NUMBER]);
         break;
 
         case "-":
-            numbers[0]= numbers[0] - numbers[2];
+            numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER] - numbers[SECOND_NUMBER];
         break;
 
         case "x":
-            numbers[0]= numbers[0] * numbers[2];
+            numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER] * numbers[SECOND_NUMBER];
         break;
 
         case "/":
-            numbers[0]= numbers[0] / numbers[2];
+            numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER] / numbers[SECOND_NUMBER];
         break;
 
     }
@@ -80,25 +73,30 @@ function operation(numbers){
 function clear() {
     value='';
     numbers =['','',''];
-    
+    document.getElementById("old-inputs").innerHTML = '';
+    document.getElementById("inputs").innerHTML = '';
 }
 
 function del(){
-    numbers[0]= numbers[0].toString();
-    numbers[0]= numbers[0].slice(0, -1);
-    document.getElementById("old-inputs").innerHTML = numbers[0];
+    numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER].toString();
+    numbers[FIRST_NUMBER]= numbers[FIRST_NUMBER].slice(0, -1);
+    document.getElementById("old-inputs").innerHTML = numbers[FIRST_NUMBER];
     document.getElementById("inputs").innerHTML = '';
 }
 
 function parenthesis(){
-    if(numbers[2].toString().includes('-')){
-        document.getElementById("old-inputs").innerHTML = numbers[0] + numbers[1] + '('+numbers[2]+')';
+    if(numbers[SECOND_NUMBER].toString()
+    .includes('-')){
+        document.getElementById("old-inputs").innerHTML = numbers[FIRST_NUMBER] + numbers[OPERATOR] + '('+numbers[SECOND_NUMBER]+')';
     }else{
-        document.getElementById("old-inputs").innerHTML = numbers[0] + numbers[1] + numbers[2];
+        document.getElementById("old-inputs").innerHTML = numbers[FIRST_NUMBER] + numbers[OPERATOR] + numbers[SECOND_NUMBER];
     }
 }
 
 let numbers=['','',''];
+const FIRST_NUMBER = 0;
+const OPERATOR = 1;
+const SECOND_NUMBER = 2;
 
 const buttons = document.getElementsByClassName("calc-button");
 
