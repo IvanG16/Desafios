@@ -65,6 +65,7 @@ img{
     display: flex;
     justify-content: flex-end;
     padding: 10px;
+    min-height: 41px;
 }
 .border{
     width: 80%;
