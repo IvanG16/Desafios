@@ -6,7 +6,7 @@
 
 ### Special Characters.
 
--The button with the flask is the calculators scientific mode to use more difficult equations and problems.
+-The button with the flask is the calculators scientific mode to use more difficult equations and problems. (See WIP section for more information)
 
 -The C button stands for "Clear" and it clears the calculator of all characters on display.
 
@@ -27,3 +27,9 @@ Dividing by Zero will show "Infinity".
 The square root of negative numbers don't exist.
 
 Using parentesis will change the order in which the equation will be processed.
+
+## WIP
+
+-The scientific mode for the calculator is not yet available for this version and so the button currently does nothing.
+
+-Parenthesis will only display for negative numbers to comply with the rule of operators shouldn't be next to eachother. In the future there may be a button for specifically using paranthesis while complying with the priority rule when doing an operation.
