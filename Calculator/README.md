@@ -35,3 +35,7 @@ Using parentesis will change the order in which the equation will be processed.
 -Parenthesis will only display for negative numbers to comply with the rule of operators shouldn't be next to eachother. In the future there may be a button for specifically using paranthesis while complying with the priority rule when doing an operation.
 
 -The square root function is not yet implemented but it is thought out to be in future versions.
+
+## React Implementation
+
+React will be implemented in the calculator and the idea is to redo the code and to create the not yet added functions like the scientific mode of the calculator and the square root functions, etc. The idea for the scientific mode is once the flask button is pressed it will extend the grid of button the the left of the calculator and display the extra functions there.
