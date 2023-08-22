@@ -33,3 +33,5 @@ Using parentesis will change the order in which the equation will be processed.
 -The scientific mode for the calculator is not yet available for this version and so the button currently does nothing.
 
 -Parenthesis will only display for negative numbers to comply with the rule of operators shouldn't be next to eachother. In the future there may be a button for specifically using paranthesis while complying with the priority rule when doing an operation.
+
+-The square root function is not yet implemented but it is thought out to be in future versions.
