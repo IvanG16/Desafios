@@ -1,7 +1,5 @@
 import { useEffect } from "react"
 
-const onClick = () => setCount2(() => count2 + 1)
-
 export const CalcButton = ({ number, buttonClick, buttonText}) => {
     const onClick = () => buttonClick(number);
 
