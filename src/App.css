@@ -2,26 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
-}
-
-.read-the-docs {
-  color: #888;
-}
-
-.numPad{
-  display: grid;
-  position: absolute;
-  padding: 20px;
-  bottom: 0;
-  right: 0;
-  left: 0;
-  height: calc(100% - 40%);
-  gap: 1rem;
-  grid-template-columns: repeat(4, 1fr);
-  border-radius: 10%;
+body{
+  width: 1440px;
+  height: 1024px;
 }

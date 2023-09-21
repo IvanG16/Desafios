@@ -1,28 +1,17 @@
 import React, { useEffect, useState } from 'react';
-import reactLogo from './assets/react.svg';
-import viteLogo from '../public/vite.svg';
+import ButtonGrid from './components/ButtonGrid';
+import Screen from './components/Screen';
 import './App.css';
-import { CalcButton } from './components/button';
 
 function App() {
-  const [number1, setNumber1] = useState(0);
-  useEffect(()=>console.log(number1),[number1])
+  const [value, setNumber1] = useState(0);
+  useEffect(() => console.log(value), [value]);
   return (
-    <>  
-      <main>
-        <div className="numPad grid grid-cols-4 gap-4 absolute bottom-0 right-0 left-0 p-20 rounded-md">
-          <CalcButton number={1} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={2} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={3} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={4} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={5} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={6} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={7} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={8} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-          <CalcButton number={9} buttonText={'Click me'} buttonClick={setNumber1}></CalcButton>
-        </div>
-      </main>
-    </>
+
+    <div className="w-[425px] h-[520px] bg-orange-500 rounded-[20px] flex-col justify-start items-start inline-flex">
+      <Screen value={value} />
+      <ButtonGrid setNumber1={setNumber1} />
+    </div>
   );
 }
 
