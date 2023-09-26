@@ -10,7 +10,7 @@ export function Button({ value, buttonClick, valueType }) {
 
   return (
     <button onClick={onClick} type="button" className={backgroundColor}>
-      <div className="w-1/2 text-black text-2xl font-normal font-['Inconsolata']">
+      <div className="w-1/2 text-black text-2xl font-normal Inconsolata">
         {value}
       </div>
     </button>
