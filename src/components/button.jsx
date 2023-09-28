@@ -5,6 +5,7 @@ export function Button({ value, buttonClick, valueType }) {
   const onClick = () => {
     buttonClick(value);
   };
+
   const styles = 'w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex';
   const backgroundColor = valueType === 'operand' ? styles.concat(' bg-stone-50') : styles.concat(' bg-stone-300');
 
