@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import ButtonGrid from './components/ButtonGrid';
 import Screen from './components/Screen';
 import './App.css';
@@ -16,6 +16,23 @@ function App() {
   const [number1, setNumber1] = useState(null);
   const [operator, setOperator] = useState(null);
   const [accumulator, setAccumulator] = useState('');
+
+  const getApiData = async () => {
+    const response = await fetch("https://rickandmortyapi.com/api/character/?name=rick&status=alive", {
+      headers: {
+        'NAME-API-KEY': 'name',
+        'STATUS-API-KEY': 'status',
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+    }
+    }).then((response) => response.json());
+  
+    console.log(response);
+  };
+  useEffect(() => {
+    getApiData();
+  }, []);
+
 
   function addData(input) {
     if (!isOff) {
