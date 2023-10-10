@@ -18,21 +18,32 @@ function App() {
   const [accumulator, setAccumulator] = useState('');
 
   const getApiData = async () => {
-    const response = await fetch("https://rickandmortyapi.com/api/character/?name=rick&status=alive", {
+    const response = await fetch('http://api.wolframalpha.com/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=2%20%2B%202', {
       headers: {
-        'NAME-API-KEY': 'name',
-        'STATUS-API-KEY': 'status',
-        'Accept': 'application/json',
-        'Content-Type': 'application/json'
-    }
+        // 'Origin': 'http://api.wolframalpha.com',
+        // 'Access-Control-Request-Method': 'GET',
+        // 'Access-Control-Request-Headers': 'Authorization',
+        // 'Access-Control-Allow-Origin': 'http://api.wolframalpha.com',
+        // 'Access-Control-Allow-Credentials': 'true',
+        // 'Access-Control-Max-Age': '600',
+        // 'Access-Control-Allow-Methods': 'GET',
+        // 'Access-Control-Allow-Headers': 'Authorization',
+        // 'APPID-API-KEY': 'appid',
+        // 'INPUT-API-KEY': 'input',
+        // 'Host': 'http://localhost:5173',
+        // 'User-Agent': 'PostmanRuntime/7.33.0',
+        // 'Accept': '*/*',
+        // 'Accept-Encoding': 'gzip, deflate, br',
+        // 'Connection': 'keep/alive'
+
+      },
+      mode: 'no-cors',
     }).then((response) => response.json());
-  
     console.log(response);
   };
   useEffect(() => {
     getApiData();
   }, []);
-
 
   function addData(input) {
     if (!isOff) {
