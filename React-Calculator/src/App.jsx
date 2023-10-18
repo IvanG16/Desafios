@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import Calculator from './Calculator';
+import Calculator from './components/Calculator';
 
 function App(){
     return (
         <>
-            <div>
-
-            </div>
+            <Calculator />
         </>
     )
 }

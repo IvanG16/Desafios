@@ -24,3 +24,7 @@ Currently, two official plugins are available:
 
 - [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
 - [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Devolopment
+
+Of the devolopment of this calculator at first was going smooth and had a steady progression but the devolopment had some setbacks in time managment cause of a couple of different things that made it very difficult to proceed, but despite it the calculator is nearly finished and will implement Routers and API callbacks.
