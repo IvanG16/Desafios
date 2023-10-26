@@ -3,22 +3,23 @@ import ButtonGrid from './ButtonGrid';
 import Screen from './Screen';
 import './Calculator.css';
 
-export function calculator() {
+export const operations = {
+  '+': (x, y) => parseFloat(x) + parseFloat(y),
+  '-': (x, y) => parseFloat(x) - parseFloat(y),
+  '*': (x, y) => parseFloat(x) * parseFloat(y),
+  '/': (x, y) => parseFloat(x) / parseFloat(y),
+  '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
+};
+export const operators = Object.keys(operations);
+
+export function Calculator() {
   const [isOff, setIsOff] = useState(false);
-  const operators = ['+', '-', '*', '/', '%'];
-  const operations = {
-    '+': (x, y) => parseFloat(x) + parseFloat(y),
-    '-': (x, y) => parseFloat(x) - parseFloat(y),
-    '*': (x, y) => parseFloat(x) * parseFloat(y),
-    '/': (x, y) => parseFloat(x) / parseFloat(y),
-    '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
-  };
   const [number1, setNumber1] = useState(null);
   const [operator, setOperator] = useState(null);
   const [accumulator, setAccumulator] = useState('');
 
   const getApiData = async () => {
-    const response = await fetch(`https://api.wolframalpha.com/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=${number1}%2B${accumulator}`);
+    const response = await fetch('/api');
     console.log(response);
   };
   useEffect(() => {
@@ -89,4 +90,4 @@ export function calculator() {
   );
 }
 
-export default calculator;
+export default Calculator;

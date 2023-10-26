@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'radioland';
+  src: url('../assets/radioland.slim.ttf') format('woff2');
+}
+
 body{
   width: 1440px;
   height: 1024px;

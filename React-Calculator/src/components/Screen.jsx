@@ -9,7 +9,7 @@ export function Screen({ data, power }) {
     <div className="w-[425px] h-[147px] px-2.5 py-5 rounded-[20px] border border-neutral-500 flex-col justify-start items-end gap-2.5 inline-flex">
       <div className="w-[134px] h-[27px] bg-stone-600" />
       <div className={screenStyle}>
-        <div className="w-[82px] h-[60px] px-4 text-white text-2xl font-normal font-['Inconsolata'] flex justify-end items-center">
+        <div className="w-[82px] h-[60px] px-4 text-white text-3xl font-normal font-['radioland'] flex justify-end items-center tracking-wide">
           {data}
         </div>
       </div>
