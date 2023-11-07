@@ -19,12 +19,12 @@ export function Calculator() {
   const [accumulator, setAccumulator] = useState('');
 
   const getApiData = async () => {
-    const response = await fetch('/api');
-    console.log(response);
+    const response = await fetch(`/api/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=${number1}%20${operator}%20${number1}&output=json`);
+    const data = await response.json();
+
+    console.log(data)
+    console.log(data.queryresult.pods.find(({ id }) => id === 'Result')?.subpods[0]?.plaintext)
   };
-  useEffect(() => {
-    getApiData();
-  }, []);
 
   function addData(input) {
     if (!isOff) {
@@ -40,6 +40,7 @@ export function Calculator() {
             if (number1 && accumulator && operator) {
               setAccumulator(operations[operator](number1, accumulator));
             }
+            getApiData();
             break;
           case 'C':
             setAccumulator('');
