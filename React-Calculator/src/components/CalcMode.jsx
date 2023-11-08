@@ -1,20 +1,15 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Calculator from './Calculator';
 import WolframCalc from './WolframCalc';
 
-export function CalcMode({ modeType }) {
-    const [calcState, setCalcState] = useState('Calculator')
-    const onClick = () => {
-        setCalcState(modeType)
-    };
+export function CalcMode({ calcMode }) {
 
-    if (calcState === 'Calculator') {
-        return (
-            <button onClick={onClick}>
-                {calcState}
-            </button>
-        );
-    }
+    return (
+        <div className='flex justify-center'>
+            {calcMode === 'regular' && <Calculator />}
+            {calcMode === 'wolfram' && <WolframCalc />}
+        </div>
+    );
 }
 
 export default CalcMode;

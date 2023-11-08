@@ -12,26 +12,15 @@ export function ButtonGrid({ handleOnClick }) {
           <Button valueType="operand" value="del" handleClick={handleOnClick} />
         </div>
         <div className="justify-start items-start gap-[25px] inline-flex flex-wrap items-center">
-          <Button valueType="number" value={7} handleClick={handleOnClick} />
-          <Button valueType="number" value={8} handleClick={handleOnClick} />
-          <Button valueType="number" value={9} handleClick={handleOnClick} />
-          <Button valueType="number" value={4} handleClick={handleOnClick} />
-          <Button valueType="number" value={5} handleClick={handleOnClick} />
-          <Button valueType="number" value={6} handleClick={handleOnClick} />
-          <Button valueType="number" value={1} handleClick={handleOnClick} />
-          <Button valueType="number" value={2} handleClick={handleOnClick} />
-          <Button valueType="number" value={3} handleClick={handleOnClick} />
-          <Button valueType="number" value="." handleClick={handleOnClick} />
-          <Button valueType="number" value={0} handleClick={handleOnClick} />
-          <Button valueType="number" value="=" handleClick={handleOnClick} />
+          {[7, 8, 9, 4, 5, 6, 1, 2, 3, '.', 0, '='].map((value) => (
+            <Button valueType="number" value={value} handleClick={handleOnClick} key={`button${value}`} />
+          ))}
         </div>
       </div>
       <div className="justify-start items-start gap-[25px] inline-flex flex-wrap items-center">
-        <Button valueType="operand" value="%" handleClick={handleOnClick} />
-        <Button valueType="operand" value="/" handleClick={handleOnClick} />
-        <Button valueType="operand" value="*" handleClick={handleOnClick} />
-        <Button valueType="operand" value="-" handleClick={handleOnClick} />
-        <Button valueType="operand" value="+" handleClick={handleOnClick} />
+        {['%', '/', '*', '-', '+'].map((value) => (
+          <Button valueType="operand" value={value} handleClick={handleOnClick} key={`button${value}`} />
+        ))}
       </div>
     </div>
   );
