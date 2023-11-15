@@ -1,35 +1,40 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import WolfButtonGrid from './WolfButtonGrid';
 import Screen from './Screen';
 import './Calculator.css';
 
 export const operations = {
-    '+': (x, y) => parseFloat(x) + parseFloat(y),
-    '-': (x, y) => parseFloat(x) - parseFloat(y),
-    '*': (x, y) => parseFloat(x) * parseFloat(y),
-    '/': (x, y) => parseFloat(x) / parseFloat(y),
-    '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
+    '√': (x) => parseFloat(x) + parseFloat(x),
+    '^': (x, y) => parseFloat(x) - parseFloat(y),
+    'cos': (x, y) => parseFloat(x) * parseFloat(y),
+    'tan': (x, y) => parseFloat(x) / parseFloat(y),
+    'sen': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
 };
 export const operators = Object.keys(operations);
 
 const getApiData = async (number1, operator, accumulator) => {
-    const response = await fetch(`/api/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=${number1}%20${operator}%20${accumulator}&output=json`);
-    if (response.ok) {
-        const data = await response.json();
-        if (data.queryresult.success) {
-            return data.queryresult.pods.find(({ id }) => id === 'Result')?.subpods[0]?.plaintext;
+    if(!number1 && operator != '^'){
+        const response = await fetch(`/api/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=${operator}%20${accumulator}&output=json`);
+        if (response.ok) {
+            const data = await response.json();
+            if (data.queryresult.success) {
+                const apiResponse = (data.queryresult.pods.find(({ id }) => id === 'Result')) ? data.queryresult.pods.find(({ id }) => id === 'Result')?.subpods[0]?.plaintext : data.queryresult.pods.find(({ id }) => id === 'DecimalApproximation')?.subpods[0]?.plaintext
+                return apiResponse.substring(0, 28);
+            }
         }
+    }else if(number1){
+        return 'Syntax Error';
     }
     throw new Error(`Error al calcular ${number1} ${operator} ${accumulator}`);
 };
 
-export function WolframCalc() {
+export function WolframCalc({ setLogList }) {
     const [isOff, setIsOff] = useState(false);
     const [number1, setNumber1] = useState(null);
     const [operator, setOperator] = useState(null);
     const [accumulator, setAccumulator] = useState('');
 
-    function addData(input) {
+    async function addData (input) {
         if (!isOff) {
             if (operators.includes(input)) {
                 if (!number1) {
@@ -40,7 +45,16 @@ export function WolframCalc() {
             } else {
                 switch (input) {
                     case '=':
-                        getApiData(number1, operator, accumulator);
+                        const apiData = await getApiData(number1, operator, accumulator);
+                        setAccumulator(apiData);
+                        setLogList((previousLogs) => {
+                            const newLogs = {
+                                calculo: `${number1} ${operator} ${accumulator}`,
+                                date: new Date(),
+                            }
+                            return [...previousLogs, newLogs]
+                        }
+                        )
                         break;
                     case 'C':
                         setAccumulator('');
@@ -67,7 +81,7 @@ export function WolframCalc() {
                         }
                         break;
                     default:
-                        setAccumulator(accumulator + input);
+                        if(accumulator.length < 28) setAccumulator(accumulator + input);
                 }
             }
         } else if (input === 'Off') {

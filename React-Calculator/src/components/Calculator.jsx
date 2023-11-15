@@ -18,14 +18,6 @@ export function Calculator() {
   const [operator, setOperator] = useState(null);
   const [accumulator, setAccumulator] = useState('');
 
-  const getApiData = async () => {
-    const response = await fetch(`/api/v2/query?appid=XA3Y4W-2EP6LQJ3W6&input=${number1}%20${operator}%20${number1}&output=json`);
-    const data = await response.json();
-
-    console.log(data)
-    console.log(data.queryresult.pods.find(({ id }) => id === 'Result')?.subpods[0]?.plaintext)
-  };
-
   function addData(input) {
     if (!isOff) {
       if (operators.includes(input)) {
@@ -40,7 +32,6 @@ export function Calculator() {
             if (number1 && accumulator && operator) {
               setAccumulator(operations[operator](number1, accumulator));
             }
-            getApiData();
             break;
           case 'C':
             setAccumulator('');
@@ -67,7 +58,7 @@ export function Calculator() {
             }
             break;
           default:
-            setAccumulator(accumulator + input);
+            if(accumulator.length < 28) setAccumulator(accumulator + input);
         }
       }
     } else if (input === 'Off') {

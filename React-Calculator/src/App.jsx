@@ -16,6 +16,9 @@ export function App() {
                 <button onClick={() => setCalcMode('wolfram')} className={calcMode === 'wolfram' ? selectedStyle : styles}>
                     Wolfram Calculator
                 </button>
+                <button onClick={() => setCalcMode('logs')} className={calcMode === 'logs' ? selectedStyle : styles}>
+                    Logs
+                </button>
             </div>
             <CalcMode calcMode={calcMode} />
         </>
