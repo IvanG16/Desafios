@@ -1,0 +1,14 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`<Button /> > renders properly 1`] = `
+<div>
+  <button
+    class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+    type="button"
+  >
+    <div
+      class="w-1/2 text-black text-2xl font-normal Inconsolata"
+    />
+  </button>
+</div>
+`;
