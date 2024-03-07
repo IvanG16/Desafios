@@ -1,0 +1,12 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'radioland';
+  src: url('../assets/radioland.slim.ttf') format('woff2');
+}
+
+body{
+  background-color: #D3D3D3;
+}

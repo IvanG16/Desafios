@@ -1,18 +1,19 @@
-import React, { useState } from 'react';
-import ButtonGrid from './components/ButtonGrid';
-import Screen from './components/Screen';
-import './App.css';
+import React, { useEffect, useState } from 'react';
+import ButtonGrid from './ButtonGrid';
+import Screen from './Screen';
+import './Calculator.css';
 
-function App() {
+export const operations = {
+  '+': (x, y) => parseFloat(x) + parseFloat(y),
+  '-': (x, y) => parseFloat(x) - parseFloat(y),
+  '*': (x, y) => parseFloat(x) * parseFloat(y),
+  '/': (x, y) => parseFloat(x) / parseFloat(y),
+  '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
+};
+export const operators = Object.keys(operations);
+
+export function Calculator() {
   const [isOff, setIsOff] = useState(false);
-  const operators = ['+', '-', '*', '/', '%'];
-  const operations = {
-    '+': (x, y) => parseFloat(x) + parseFloat(y),
-    '-': (x, y) => parseFloat(x) - parseFloat(y),
-    '*': (x, y) => parseFloat(x) * parseFloat(y),
-    '/': (x, y) => parseFloat(x) / parseFloat(y),
-    '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
-  };
   const [number1, setNumber1] = useState(null);
   const [operator, setOperator] = useState(null);
   const [accumulator, setAccumulator] = useState('');
@@ -57,7 +58,7 @@ function App() {
             }
             break;
           default:
-            setAccumulator(accumulator + input);
+            if(accumulator.length < 28) setAccumulator(accumulator + input);
         }
       }
     } else if (input === 'Off') {
@@ -81,4 +82,4 @@ function App() {
   );
 }
 
-export default App;
+export default Calculator;
