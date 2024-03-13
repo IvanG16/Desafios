@@ -8,7 +8,24 @@ exports[`<Button /> > renders properly 1`] = `
   >
     <div
       class="w-1/2 text-black text-2xl font-normal Inconsolata"
-    />
+    >
+      1
+    </div>
+  </button>
+</div>
+`;
+
+exports[`<Button /> > renders properly as operand  1`] = `
+<div>
+  <button
+    class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+    type="button"
+  >
+    <div
+      class="w-1/2 text-black text-2xl font-normal Inconsolata"
+    >
+      +
+    </div>
   </button>
 </div>
 `;
