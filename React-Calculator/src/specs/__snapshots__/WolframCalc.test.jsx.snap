@@ -1,0 +1,244 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[` <WolframCalc /> > renders properly 1`] = `
+<div>
+  <div
+    class="w-[425px] h-[520px] bg-orange-500 rounded-[20px] flex-col justify-start items-start inline-flex"
+  >
+    <div
+      class="w-[425px] h-[147px] px-2.5 py-5 rounded-[20px] border border-neutral-500 flex-col justify-start items-end gap-2.5 inline-flex"
+    >
+      <div
+        class="w-[134px] h-[27px] bg-stone-600"
+      />
+      <div
+        class="w-[401px] h-[70px] justify-end items-center gap-2.5 inline-flex bg-stone-600"
+      >
+        <div
+          class="w-[82px] h-[60px] px-4 text-white text-3xl font-normal font-['radioland'] flex justify-end items-center tracking-wide"
+        />
+      </div>
+    </div>
+    <div
+      class="w-[425px] h-[373px] px-2.5 py-[30px] justify-start items-start gap-[25px] inline-flex items-center"
+    >
+      <div
+        class="justify-start items-start gap-[25px] inline-flex flex-wrap items-center"
+      >
+        <div
+          class="justify-start items-start gap-[25px] inline-flex items-center"
+        >
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              Off
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              C
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              del
+            </div>
+          </button>
+        </div>
+        <div
+          class="justify-start items-start gap-[25px] inline-flex flex-wrap items-center"
+        >
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              7
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              8
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              9
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              4
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              5
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              6
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              1
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              2
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              3
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              .
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              0
+            </div>
+          </button>
+          <button
+            class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-300 "
+            type="button"
+          >
+            <div
+              class="w-1/2 text-black text-2xl font-normal Inconsolata"
+            >
+              =
+            </div>
+          </button>
+        </div>
+      </div>
+      <div
+        class="justify-start items-start gap-[25px] inline-flex flex-wrap items-center"
+      >
+        <button
+          class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+          type="button"
+        >
+          <div
+            class="w-1/2 text-black text-2xl font-normal Inconsolata"
+          >
+            √
+          </div>
+        </button>
+        <button
+          class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+          type="button"
+        >
+          <div
+            class="w-1/2 text-black text-2xl font-normal Inconsolata"
+          >
+            ^
+          </div>
+        </button>
+        <button
+          class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+          type="button"
+        >
+          <div
+            class="w-1/2 text-black text-2xl font-normal Inconsolata"
+          >
+            cos
+          </div>
+        </button>
+        <button
+          class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+          type="button"
+        >
+          <div
+            class="w-1/2 text-black text-2xl font-normal Inconsolata"
+          >
+            tan
+          </div>
+        </button>
+        <button
+          class="w-[81px] h-[45px] p-2.5 rounded-[5px] border border-black flex-col justify-center items-center gap-2.5 inline-flex bg-stone-50 "
+          type="button"
+        >
+          <div
+            class="w-1/2 text-black text-2xl font-normal Inconsolata"
+          >
+            sen
+          </div>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+`;
