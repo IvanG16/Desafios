@@ -6,4 +6,3 @@ export const operations = {
     '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
   };
 export const operators = Object.keys(operations);
-  

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import WolfButtonGrid from './WolfButtonGrid';
-import Screen from './Screen';
+import CalculatorShell from './CalculatorShell';
 import './Calculator.css';
+import { number } from 'prop-types';
 
 export const operations = {
     '√': (x) => parseFloat(x) + parseFloat(x),
@@ -28,6 +28,70 @@ const getApiData = async (number1, operator, accumulator) => {
     throw new Error(`Error al calcular ${number1} ${operator} ${accumulator}`);
 };
 
+async function inputtedEquals({ number1, operator, accumulator, setAccumulator, setLogList }){
+    if(!operator){
+        return console.log("Nothing to operate")
+    }
+
+    const apiData = await getApiData(number1, operator, accumulator);
+    setAccumulator(apiData);
+    setLogList((previousLogs) => {
+        const newLogs = {
+            calculo: `${number1} ${operator} ${accumulator}`,
+            date: new Date(),
+        }
+        return [...previousLogs, newLogs]
+    }
+    )
+}
+
+function inputtedClearAll({ setAccumulator, setNumber1, setOperator }){
+    setAccumulator('');
+    setNumber1(null);
+    setOperator(null);
+}
+
+function inputtedDelete({ setAccumulator, accumulator, setOperator, operator, setNumber1, number1 }){
+    if (accumulator) return setAccumulator(accumulator.substring(0, accumulator.length - 1));
+    
+    if (operator) return setOperator(operator.substring(0, operator.length - 1));
+
+    if (number1) return setNumber1(number1.substring(0, number1.length - 1));
+}
+
+function onOff({ setIsOff, setAccumulator, setOperator, setNumber1 }){
+    setAccumulator('');
+    setNumber1(null);
+    setOperator(null);
+    setIsOff(true);
+}
+
+function inputtedDecimalPoint({ setAccumulator, accumulator, input }){
+    if (accumulator.includes('.')) return setAccumulator(accumulator);
+
+    setAccumulator(accumulator + input);
+}
+
+function inputtedNumber({ accumulator, setAccumulator, input }){
+    if(accumulator.length < 28) return setAccumulator(accumulator + input);
+}
+
+function refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList }){
+    if(inputs[input]){
+        return inputs[input]({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList });
+    }
+    return inputtedNumber({ accumulator, setAccumulator, input });
+}
+
+const inputs = {
+    ['=']: inputtedEquals,
+    ['C']: inputtedClearAll,
+    ['del']: inputtedDelete,
+    ['Off']: onOff,
+    ['.']: inputtedDecimalPoint,
+    ...operations,
+}
+
 export function WolframCalc({ setLogList }) {
     const [isOff, setIsOff] = useState(false);
     const [number1, setNumber1] = useState(null);
@@ -36,72 +100,20 @@ export function WolframCalc({ setLogList }) {
 
     async function addData (input) {
         if (!isOff) {
-            if (operators.includes(input)) {
-                if (!number1) {
+            if (operators.includes(input) && !number1) {
                     setNumber1(accumulator);
                     setAccumulator('');
                     setOperator(input);
-                }
             } else {
-                switch (input) {
-                    case '=':
-                        const apiData = await getApiData(number1, operator, accumulator);
-                        setAccumulator(apiData);
-                        setLogList((previousLogs) => {
-                            const newLogs = {
-                                calculo: `${number1} ${operator} ${accumulator}`,
-                                date: new Date(),
-                            }
-                            return [...previousLogs, newLogs]
-                        }
-                        )
-                        break;
-                    case 'C':
-                        setAccumulator('');
-                        setNumber1(null);
-                        setOperator(null);
-                        break;
-                    case 'del':
-                        if ((number1 && operator && accumulator) || accumulator) {
-                            setAccumulator(accumulator.substring(0, accumulator.length - 1));
-                        } else if (operator) {
-                            setOperator(operator.substring(0, operator.length - 1));
-                        } else if (number1) {
-                            setNumber1(number1.substring(0, number1.length - 1));
-                        }
-                        break;
-                    case 'Off':
-                        setIsOff(true);
-                        break;
-                    case '.':
-                        if (accumulator.includes('.')) {
-                            setAccumulator(accumulator);
-                        } else {
-                            setAccumulator(accumulator + input);
-                        }
-                        break;
-                    default:
-                        if(accumulator.length < 28) setAccumulator(accumulator + input);
-                }
+                refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList })
             }
         } else if (input === 'Off') {
-            setAccumulator('');
-            setNumber1(null);
-            setOperator(null);
             setIsOff(false);
         }
     }
 
     return (
-        <div className="w-[425px] h-[520px] bg-orange-500 rounded-[20px] flex-col justify-start items-start inline-flex">
-            <Screen
-                data={accumulator}
-                power={isOff}
-            />
-            <WolfButtonGrid
-                handleOnClick={addData}
-            />
-        </div>
+        <CalculatorShell accumulator={accumulator} isOff={isOff} addData={addData}/>
     );
 }
 
