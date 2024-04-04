@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import ButtonGrid from './ButtonGrid';
-import Screen from './Screen';
+import ButtonGrid from '../ButtonGrid';
+import Screen from '../Screen';
 import './Calculator.css';
 
 export const operations = {

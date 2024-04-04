@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import Calculator from './Calculator';
-import WolframCalc from './WolframCalc';
+import Calculator from './Main calculator/Calculator';
+import WolframCalc from './Main calculator/WolframCalc';
 import Logs from './Logs';
 
 export function CalcMode({ calcMode }) {
