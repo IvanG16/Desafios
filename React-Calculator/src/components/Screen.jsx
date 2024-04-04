@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-export function Screen({ data, power }) {
+export function Screen({ data, isOff }) {
   const style1 = 'w-[401px] h-[70px] justify-end items-center gap-2.5 inline-flex';
-  const screenStyle = power === false ? style1.concat(' bg-stone-600') : style1.concat(' bg-stone-50');
+  const screenStyle = isOff === false ? style1.concat(' bg-stone-600') : style1.concat(' bg-stone-50');
   
   return (
     <div className="w-[425px] h-[147px] px-2.5 py-5 rounded-[20px] border border-neutral-500 flex-col justify-start items-end gap-2.5 inline-flex">
@@ -19,7 +19,7 @@ export function Screen({ data, power }) {
 
 Screen.propTypes = {
   data: PropTypes.oneOfType([PropTypes.string, PropTypes.number]).isRequired,
-  power: PropTypes.bool.isRequired,
+  isOff: PropTypes.bool.isRequired,
 };
 
 export default Screen;

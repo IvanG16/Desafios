@@ -59,11 +59,11 @@ function inputtedDelete({ setAccumulator, accumulator, setOperator, operator, se
     if (number1) return setNumber1(number1.substring(0, number1.length - 1));
 }
 
-function onOff({ setIsOff, setAccumulator, setOperator, setNumber1 }){
+function onOff({ isOff, setIsOff, setAccumulator, setOperator, setNumber1 }){
+    setIsOff(!isOff);
     setAccumulator('');
     setNumber1(null);
     setOperator(null);
-    setIsOff(true);
 }
 
 function inputtedDecimalPoint({ setAccumulator, accumulator, input }){
@@ -76,9 +76,9 @@ function inputtedNumber({ accumulator, setAccumulator, input }){
     if(accumulator.length < 28) return setAccumulator(accumulator + input);
 }
 
-function refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList }){
+function refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList }){
     if(inputs[input]){
-        return inputs[input]({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList });
+        return inputs[input]({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList });
     }
     return inputtedNumber({ accumulator, setAccumulator, input });
 }
@@ -99,22 +99,21 @@ export function WolframCalc({ setLogList }) {
     const [accumulator, setAccumulator] = useState('');
 
     async function addData (input) {
-        if (!isOff) {
-            if (operators.includes(input) && !number1) {
-                    setNumber1(accumulator);
-                    setAccumulator('');
-                    setOperator(input);
-            } else {
-                refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff ,setLogList })
-            }
-        } else if (input === 'Off') {
-            setIsOff(false);
+        if(isOff && input !== 'Off'){
+            return;
         }
+
+        if (operators.includes(input) && !number1) {
+                setNumber1(accumulator);
+                setAccumulator('');
+                setOperator(input);
+                return;
+        }
+
+        refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList })
     }
 
-    return (
-        <CalculatorShell accumulator={accumulator} isOff={isOff} addData={addData}/>
-    );
+    return <CalculatorShell accumulator={accumulator} isOff={isOff} addData={addData}/>;
 }
 
 export default WolframCalc;
