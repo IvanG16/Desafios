@@ -1,3 +1,12 @@
+export const basicOperations = {
+  '+': (x, y) => parseFloat(x) + parseFloat(y),
+  '-': (x, y) => parseFloat(x) - parseFloat(y),
+  '*': (x, y) => parseFloat(x) * parseFloat(y),
+  '/': (x, y) => parseFloat(x) / parseFloat(y),
+  '%': (x, y) => parseFloat(y) * (parseFloat(x) / 100),
+};
+export const basicOperators = Object.keys(basicOperations);
+
 export const operations = {
   '√': (x) => parseFloat(x) + parseFloat(x),
   '^': (x, y) => parseFloat(x) - parseFloat(y),
@@ -25,7 +34,7 @@ export const getApiData = async (number1, operator, accumulator) => {
 
 export async function inputtedEquals({ number1, operator, accumulator, setAccumulator, setLogList }){
   if(!operator){
-      return console.log("Nothing to operate")
+      return console.warn("You're trying to submit an empty calculation")
   }
 
   const apiData = await getApiData(number1, operator, accumulator);
@@ -71,11 +80,27 @@ export function inputtedNumber({ accumulator, setAccumulator, input }){
   if(accumulator.length < 28) return setAccumulator(accumulator + input);
 }
 
-export function refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList }){
+export function determinesOutput({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList }){
   if(inputs[input]){
       return inputs[input]({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList });
   }
   return inputtedNumber({ accumulator, setAccumulator, input });
+}
+
+
+export function determinesOutputBasic({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff }){
+  if(normalInputs[input]){
+      return normalInputs[input]({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff });
+  }
+  return inputtedNumber({ accumulator, setAccumulator, input });
+}
+
+export function normalEquals({ number1, accumulator, operator, setAccumulator }){
+  if(!(number1 && accumulator && operator)){
+    return console.warn('You are trying to submit an invalid operation')
+  }
+
+  setAccumulator(basicOperations[operator](number1, accumulator));
 }
 
 export const inputs = {
@@ -85,4 +110,13 @@ export const inputs = {
   ['Off']: onOff,
   ['.']: inputtedDecimalPoint,
   ...operations,
+}
+
+export const normalInputs = {
+  ['=']: normalEquals,
+  ['C']: inputtedClearAll,
+  ['del']: inputtedDelete,
+  ['Off']: onOff,
+  ['.']: inputtedDecimalPoint,
+  ...basicOperations,
 }

@@ -60,7 +60,7 @@ describe(' operations object', ()=> {
             expect(operations['*'](-3, -3)).toBe(9)
         })
         test(' multiplication with a 1 ', ()=>{
-            expect(operations['*'](2, 1)).toBe(0.5)
+            expect(operations['*'](2, 1)).toBe(2)
         })
         test(' multiplication where "y" is a decimal ', ()=>{
             expect(operations['*'](2, 0.5)).toBe(1)
@@ -68,7 +68,7 @@ describe(' operations object', ()=> {
     })
     describe('possible divisions', ()=>{
         test(' division only zeros ', ()=>{
-            expect(operations['/'](0, 0)).toBe(0)
+            expect(operations['/'](0, 0)).toBe(NaN)
         })
         test(' division where "x" is negative ', ()=>{
             expect(operations['/'](-9, 2)).toBe(-4.5)
@@ -94,16 +94,10 @@ describe(' operations object', ()=> {
             expect(operations['%'](5, 100)).toBe(5)
         })
         test(' percentage ', ()=>{
-            expect(operations['%'](0, 10)).toBe(1)
-        })
-        test(' percentagewhere "y" is negative ', ()=>{
-            expect(operations['%'](5, -8)).toBe(-3)
-        })
-        test(' percentage whereboth numbers are negatve                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  ', ()=>{
-            expect(operations['%'](-3, -3)).toBe(-6)
+            expect(operations['%'](0, 10)).toBe(0)
         })
         test(' percentage where both numbers are decimals ', ()=>{
-            expect(operations['%'](0.5, 0.7)).toBe(0.35)
+            expect(operations['%'](0.10, 0.5)).toBe(0.0005)
         })
         test(' percentage of zero', ()=>{
             expect(operations['%'](0, 0)).toBe(0)

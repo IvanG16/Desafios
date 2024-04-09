@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import CalculatorShell from '../CalculatorShell.jsx';
-import './Calculator.css';
-import { operators, refactoredSwitch } from './utils/index.js';
+import '../Calculator.css';
+import { operators, determinesOutput } from './utils/index.js';
 
 export function WolframCalc({ setLogList }) {
     const [isOff, setIsOff] = useState(false);
@@ -21,10 +21,10 @@ export function WolframCalc({ setLogList }) {
                 return;
         }
 
-        refactoredSwitch({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList })
+        determinesOutput({ input, setAccumulator, accumulator, setNumber1, number1, setOperator, operator, setIsOff, isOff ,setLogList })
     }
 
-    return <CalculatorShell accumulator={accumulator} isOff={isOff} addData={addData}/>;
+    return <CalculatorShell accumulator={accumulator} isOff={isOff} addData={addData} type={'wolfram'}/>;
 }
 
 export default WolframCalc;
