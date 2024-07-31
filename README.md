@@ -15,3 +15,16 @@ Main o-------o-----------\----------------------o
 ## Contents of branches:
 
 The branches of Main will contain different challenges in which each one will merge with main once completed. Feature branches will contain changes made to challenge branches.
+
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+# Devolopment
+
+Of the devolopment of this calculator at first was going smooth and had a steady progression but the devolopment had some setbacks in time managment cause of a couple of different things that made it very difficult to proceed, but despite it the calculator is nearly finished and will implement Routers and API callbacks.
